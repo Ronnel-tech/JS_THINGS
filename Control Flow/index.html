@@ -4,12 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="../src/output.css" />
   </head>
-  <body>
-    <form id="moneyForm">
-      <label for="moneyInput">How much is your money?</label>
-      <input type="text" id="moneyInput" />
-      <button type="submit">Check Money</button>
+  <body class="p-30">
+    <form
+      id="moneyForm"
+      class="flex flex-col gap-3 align-center justify-center"
+    >
+      <label for="moneyInput" class="text-center"
+        >How much is your money?</label
+      >
+      <input
+        type="text"
+        id="moneyInput"
+        class="border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+      />
+      <button
+        type="submit"
+        class="mt-4 bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+      >
+        Check Money
+      </button>
     </form>
 
     <script src="app.js"></script>
