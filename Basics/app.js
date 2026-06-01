@@ -50,3 +50,24 @@
 // console.log(divide(fnum, snum));
 // console.log(modulus(fnum, snum));
 // console.log(exponent(fnum, snum));
+
+// BOOLEAN LOGIC
+
+// let a = 10;
+
+// isTrue = a > 5; // true
+// isFalse = a < 5; // false
+
+// console.log(isTrue);
+// console.log(isFalse);
+
+// let name = "Ronnel";
+
+// console.log(name.slice(2, 5));
+
+// Type Conversion
+
+// let age = 34;
+
+// age = toString();
+// console.log(typeof age);
