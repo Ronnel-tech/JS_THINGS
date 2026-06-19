@@ -117,3 +117,226 @@
 
 //   console.log(names);
 // });
+
+// const person = {
+//   firstname: "Ronnel",
+//   lastname: "Gerbs",
+//   age: 21,
+//   city: "Cebu",
+// };
+
+// console.log(person.firstname);
+
+// console.log(typeof person);
+
+// const car = {
+//   type: "Tesla",
+//   model: "Model S",
+//   color: "Red",
+// };
+
+// console.log(typeof car);
+// car.type = "Toyota";
+// car.wheels = "value";
+
+// console.log(car);
+
+// a = 5;
+// b = 10;
+
+// function add(x, y) {
+//   return x + y;
+// }
+
+// // console.log(add(a, b));
+
+// function greet(name) {
+//   return "Hello, " + name + "!";
+// }
+
+// console.log(greet("Ronnel"));
+
+// console.log(myName("Ronnel"));
+
+// const myName = function (name) {
+//   return "Hello, " + name + "!";
+// };
+
+// let result = mulltiply(5, 10);
+// console.log(result);
+
+// function multiply(x, y) {
+//   return x * y;
+// }
+
+// let result1 = multiply(5, 20);
+
+// function result() {
+//   console.log(result1);
+// }
+
+// result();
+
+// Callback function
+
+// function name(callback) {
+//     const name = "Ronnel";
+//     callback(name);
+// };
+
+// name(function (name)
+// {
+//     console.log("Hello, " + name + "!");
+// }
+
+// );
+
+// function name(x) {
+//   return x;
+// }
+
+// function greet(name) {
+//   console.log("Hello" + " " + name + "!");
+// }
+
+// greet(name("Shabs"));
+
+// function getName(name, callback) {
+//   callback(name);
+// }
+
+// function callback() {
+//   console.log("Hello");
+// }
+
+// getName();
+
+// function getname(name, callback) {
+//     return name;
+//     callback();
+// };
+
+// function greet(function(getname){
+//     console.log("Hello");
+// });
+
+// function geoFindMe() {
+//   const status = document.querySelector("#status");
+//   const mapLink = document.querySelector("#map-link");
+
+//   mapLink.href = "";
+//   mapLink.textContent = "";
+
+//   function success(position) {
+//     const latitude = position.coords.latitude;
+//     const longitude = position.coords.longitude;
+
+//     status.textContent = "";
+//     mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`;
+//     mapLink.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
+//   }
+
+//   function error() {
+//     status.textContent = "Unable to retrieve your location";
+//   }
+//   ``;
+//   if (!navigator.geolocation) {
+//     status.textContent = "Geolocation is not supported by your browser";
+//   } else {
+//     status.textContent = "Locating…";
+//     navigator.geolocation.getCurrentPosition(success, error);
+//   }
+// }
+
+// document.querySelector("#find-me").addEventListener("click", geoFindMe);
+
+// function add(a, b) {
+//   result = a + b;
+//   return result;
+// }
+
+// function print_result(x) {
+//   return console.log("The result is: " + x);
+// }
+
+// print_result(add(5, 10));
+
+// class numbers {
+//   constructor(first_number, second_number) {
+//     this.first_number = first_number;
+//     this.second_number = second_number;
+//   }
+//   add() {
+//     return this.first_number + this.second_number;
+//   }
+//   subtract() {
+//     return this.first_number - this.second_number;
+//   }
+//   print(x) {
+//     return console.log(`The result is: ${x}`);
+//   }
+// }
+
+// const numbers1 = new numbers(5, 23);
+// cons;
+// result = numbers1.add();
+// result1 = numbers1.subtract();
+
+// numbers1.print(result);
+// numbers1.print(result1);
+
+// class Person {
+//   constructor(name, age, address, sex) {
+//     this.name = name;
+//     this.age = age;
+//     this.address = address;
+//     this.sex = sex;
+//   }
+//   greet() {
+//     return console.log(
+//       `Hello, my name is ${this.name} and I am ${this.age} years old. I live in ${this.address} and I am a ${this.sex}.`,
+//     );
+//   }
+// }
+
+// class Student extends Person {
+//   constructor(name, age, address, sex, studentID, section) {
+//     super(name, age, address, sex);
+//     this.studentID = studentID;
+//     this.section = section;
+//   }
+//   student_info() {
+//     return console.log(
+//       `My student ID is ${this.studentID} and I am in section ${this.section}.`,
+//     );
+//   }
+// }
+
+// // const person = new Person("Ronnel", 21, "Oriental Mindoro", "Male");
+// // person.greet();
+
+// const student = new Student(
+//   "Ronnel",
+//   21,
+//   "Oriental Mindoro",
+//   "Male",
+//   1111,
+//   "3-F3",
+// );
+
+// student.student_info();
+// student.greet();z
+
+class bankAccount {
+  constructor(accountBalance) {
+    this.accountBalance = accountBalance;
+  }
+  showBalance() {
+    return `Your account balance is: ${this.accountBalance}`;
+  }
+}
+
+const account = new bankAccount(1000);
+account.accountBalance(999);
+
+console.log(account.showBalance());
