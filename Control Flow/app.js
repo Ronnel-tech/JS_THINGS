@@ -327,16 +327,30 @@
 // student.student_info();
 // student.greet();z
 
-class bankAccount {
-  constructor(accountBalance) {
-    this.accountBalance = accountBalance;
-  }
-  showBalance() {
-    return `Your account balance is: ${this.accountBalance}`;
-  }
+// class bankAccount {
+//   constructor(accountBalance) {
+//     this.accountBalance = accountBalance;
+//   }
+//   showBalance() {
+//     return `Your account balance is: ${this.accountBalance}`;
+//   }
+// }
+
+// const account = new bankAccount(1000);
+// account.accountBalance(999);
+
+// console.log(account.showBalance());
+
+const user = [
+  { name: "Alice", email: "alice@gmail.com" },
+  { name: "John", email: "john@gmail.com" },
+  { name: "Ron", email: "ron@gmail.com" },
+];
+
+function sendWelcomeEmail(email) {
+  console.log(`Hello and welcome ${email}`);
 }
 
-const account = new bankAccount(1000);
-account.accountBalance(999);
-
-console.log(account.showBalance());
+user.forEach((user) => {
+  sendWelcomeEmail(user.email);
+});

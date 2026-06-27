@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tailwind Practice</title>
+    <link rel="stylesheet" href="../src/output.css" />
+  </head>
+  <body class="mt-4 p-2 md:p-3 lg:p-5">
+    <header class="bg-gray-500 flex p-5 rounded-full justify-between">
+      <nav>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+        >
+          <path
+            d="M4 18H10"
+            stroke="#000000"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+          <path
+            d="M4 12L16 12"
+            stroke="#000000"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+          <path
+            d="M4 6L20 6"
+            stroke="#000000"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+        </svg>
+      </nav>
+      <h1>Logo</h1>
+      <h1>Logo Icon</h1>
+    </header>
+    <section class="grid grid-cols-1 gap-5 md:grid-cols-3">
+      <main class="mt-10 flex flex-col gap-5 md:col-span-2">
+        <div class="bg-gray-400 p-5 rounded-full flex justify-center">
+          Div 1
+        </div>
+        <div class="bg-gray-400 p-5 rounded-full flex justify-center">
+          Div 2
+        </div>
+        <div class="bg-gray-400 p-5 rounded-full flex justify-center">
+          Div 3
+        </div>
+        <div class="bg-gray-400 p-5 rounded-full flex justify-center">
+          Div 4
+        </div>
+        <div class="bg-gray-400 p-5 rounded-full flex justify-center">
+          Div 5
+        </div>
+      </main>
+
+      <aside
+        class="bg-gray-500 p-5 mt-15 flex justify-center rounded-full md:col-span-1 md:rounded-4xl"
+      >
+        <div class="">This is the aside div</div>
+      </aside>
+    </section>
+
+    <footer class="bg-gray-500 mt-5 p-10 rounded-2xl">
+      <h1 class="p-5 bg-gray-200 text-center rounded-full">
+        This is the footer
+      </h1>
+    </footer>
+  </body>
+</html>
