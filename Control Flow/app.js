@@ -341,16 +341,16 @@
 
 // console.log(account.showBalance());
 
-const user = [
-  { name: "Alice", email: "alice@gmail.com" },
-  { name: "John", email: "john@gmail.com" },
-  { name: "Ron", email: "ron@gmail.com" },
-];
+// const user = [
+//   { name: "Alice", email: "alice@gmail.com" },
+//   { name: "John", email: "john@gmail.com" },
+//   { name: "Ron", email: "ron@gmail.com" },
+// ];
 
-function sendWelcomeEmail(email) {
-  console.log(`Hello and welcome ${email}`);
-}
+// function sendWelcomeEmail(email) {
+//   console.log(`Hello and welcome ${email}`);
+// }
 
-user.forEach((user) => {
-  sendWelcomeEmail(user.email);
-});
+// user.forEach((user) => {
+//   sendWelcomeEmail(user.email);
+// });
