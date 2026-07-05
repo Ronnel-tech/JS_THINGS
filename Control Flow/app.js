@@ -390,3 +390,12 @@ const result =
       : "Correct Answer!";
 
 console.log(result);
+
+const result =
+  guess < correctNumber
+    ? "Too Low!"
+    : guess > correctNumber
+      ? "Too High!"
+      : "Correct Answer!";
+
+console.log(result);
