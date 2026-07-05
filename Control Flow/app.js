@@ -354,3 +354,39 @@
 // user.forEach((user) => {
 //   sendWelcomeEmail(user.email);
 // });
+
+// let message = "";
+
+// if(ExerciseTime < 5) {
+//   message = "You haven't exercised enough today.";
+// } else {
+//   message = "You've exercised enough today.";
+// }
+
+// console.log(message);
+
+// const ExerciseTime = 21;
+
+// const message =
+//   ExerciseTime < 5
+//     ? "You enjoyed your rest day."
+//     : ExerciseTime >= 5 && ExerciseTime <= 20
+//       ? "You did good today."
+//       : "You exercised enough today.";
+// console.log(message);
+
+const guess = 5;
+const correctNumber = 5;
+
+// const result =
+//   guess === correctNumber ? "Correct guess!" : "Incorrect guess. Try again";
+// console.log(result);
+
+const result =
+  guess < correctNumber
+    ? "Too Low!"
+    : guess > correctNumber
+      ? "Too High!"
+      : "Correct Answer!";
+
+console.log(result);
