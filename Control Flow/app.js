@@ -382,20 +382,253 @@ const correctNumber = 5;
 //   guess === correctNumber ? "Correct guess!" : "Incorrect guess. Try again";
 // console.log(result);
 
-const result =
-  guess < correctNumber
-    ? "Too Low!"
-    : guess > correctNumber
-      ? "Too High!"
-      : "Correct Answer!";
+// Ternary Operaiton
+// const result =
+//   guess < correctNumber
+//     ? "Too Low!"
+//     : guess > correctNumber
+//       ? "Too High!"
+//       : "Correct Answer!";
 
-console.log(result);
+// console.log(result);
 
-const result =
-  guess < correctNumber
-    ? "Too Low!"
-    : guess > correctNumber
-      ? "Too High!"
-      : "Correct Answer!";
+// const result =
+//   guess < correctNumber
+//     ? "Too Low!"
+//     : guess > correctNumber
+//       ? "Too High!"
+//       : "Correct Answer!";
 
-console.log(result);
+// console.log(result);
+
+// function showCallfunc(fn) {
+//   const value = 10;
+//   fn(value);
+// }
+
+// showCallfunc(function (value) {
+//   console.log(value);
+// });
+
+// function Greet(name, fn) {
+//   greeting = "Hello " + name;
+//   fn(greeting);
+// }
+
+// Greet("Ronnel", function (greeting) {
+//   console.log(greeting);
+// });
+
+// name, age, address
+
+// function personalDetails(name, age, address) {
+//   console.log(
+//     `Hello ${name}, you are ${age} years old, and you live in ${address}`,
+//   );
+//   name();
+//   age();
+//   address();
+// }
+
+// function name(x) {
+//   return x;
+// }
+
+// function age(x) {
+//   return x;
+// }
+
+// function address(x) {
+//   return x;
+// }
+
+// personalDetails("Ronnel", 21, "Masipit");
+
+// function showCallfunc(cb) {
+//   const value = 10;
+//   cb(value);
+// }
+
+// showCallfunc(function (value) {
+//   console.log(value);
+// });
+
+// console.log("1: Start");
+// setTimeout(() => console.log("2: Timeout"), 0);
+// Promise.resolve().then(() => console.log("3: Promise"));
+// console.log("4: End");
+
+// ______________________________________________________________________________________________
+
+document.getElementById("myBtn1").addEventListener("click", function () {
+  alert("Button Clicked");
+});
+
+document.getElementById("myBtn2").addEventListener("mouseover", function () {
+  console.log("Mouse is over me!");
+});
+
+document.getElementById("myBtn3").addEventListener("dblclick", function () {
+  alert("Double Clicked!");
+});
+
+document.getElementById("helloEvent").addEventListener("click", function () {
+  console.log("Custom helloEvent Trigger");
+});
+
+const parent = document.getElementById("parent");
+const child = document.getElementById("child");
+
+parent.addEventListener(
+  "click",
+  function () {
+    console.log("Parent clicked - CAPTURING");
+  },
+  { capture: true },
+);
+
+child.addEventListener(
+  "click",
+  function () {
+    console.log("Child clicked - BUBBLING");
+  },
+  { capture: false },
+);
+
+// When the child button is clicked:
+
+// 1. The event travels DOWN from the parent to the child.
+//    This is the CAPTURING phase.
+
+//    Parent clicked - CAPTURING
+
+// 2. The child event runs.
+
+//    Child clicked - BUBBLING
+
+// The capturing listener runs first because capturing
+// happens before the event reaches the target.
+
+// If the parent also had a normal (bubbling) listener,
+// it would run after the child.
+
+// ______________________________________________________________________________________________
+
+// function getUser(id, callback) {
+//   setTimeout(() => callback({ id, name: "Maria" }), 400);
+// }
+
+// function getOrders(userId, callback) {
+//   setTimeout(() => callback([{ id: 101, userId }]), 400);
+// }
+
+// function getShippingStatus(orderId, callback) {
+//   setTimeout(() => callback("Delivered"), 400);
+// }
+
+// function getDeliveryDate(orderId, callback) {}
+
+// getUser(1, (user) => {
+//   console.log("User:", user.name);
+
+//   getOrders(user.id, (orders) => {
+//     console.log("First order ID:", orders[0].id);
+
+//     getShippingStatus(orders[0].id, (status) => {
+//       console.log("Shipping status:", status);
+//       app.innerHTML = `
+//         <p><strong>User:</strong> ${user.name}</p>
+//         <p><strong>Order ID:</strong> ${orders[0].id}</p>
+//         <p><strong>Status:</strong> ${status}</p>
+//       `;
+//     });
+//   });
+// });
+
+// _______________________________________________________________________________________________
+
+const myName = "Antaran, Ronnel L.";
+
+(async function main() {
+  function waitWithCallback(ms, message, callback) {
+    setTimeout(() => callback(message), ms);
+  }
+
+  function waitWithPromise(ms, message) {
+    return new Promise((resolve) => {
+      setTimeout(() => resolve(message), ms);
+    });
+  }
+
+  async function waitWithAsyncAwait(ms, message) {
+    const msg = await waitWithPromise(ms, message);
+    console.log(msg);
+  }
+
+  function fakeApi(name, ms) {
+    return new Promise((resolve) => {
+      setTimeout(() => resolve(`${name} success`), ms);
+    });
+  }
+
+  function fakeFetch({ signal, ms = 2500 }) {
+    return new Promise((resolve, reject) => {
+      const timer = setTimeout(() => {
+        resolve({ message: "Loaded successfully" });
+      }, ms);
+
+      signal.addEventListener("abort", () => {
+        clearTimeout(timer);
+        reject(new DOMException("Aborted", "AbortError"));
+      });
+    });
+  }
+
+  async function runAbortDemo(abortDelay) {
+    const controller = new AbortController();
+    setTimeout(() => controller.abort(), abortDelay);
+
+    try {
+      const result = await fakeFetch({ signal: controller.signal, ms: 2500 });
+      console.log(`Abort demo (${abortDelay}ms): completed`);
+      return `completed: ${result.message}`;
+    } catch (error) {
+      if (error.name === "AbortError") {
+        console.log(`Abort demo (${abortDelay}ms): cancelled`);
+        return "cancelled";
+      }
+      throw error;
+    }
+  }
+
+  waitWithCallback(600, "Callback: done waiting", (msg) => console.log(msg));
+  waitWithPromise(700, "Promise: done waiting").then((msg) => console.log(msg));
+  await waitWithAsyncAwait(800, "Async/Await: done waiting");
+
+  const apiResults = await Promise.all([
+    fakeApi("API A", 1000),
+    fakeApi("API B", 1400),
+    fakeApi("API C", 900),
+  ]);
+  console.log("Promise.all results:", apiResults);
+
+  // Predicted output order:
+  // sync start -> sync end -> microtasks -> macrotasks
+  console.log("EventLoop: sync start");
+  setTimeout(() => console.log("EventLoop: macrotask 1"), 0);
+  Promise.resolve().then(() => console.log("EventLoop: microtask 1"));
+  Promise.resolve().then(() => console.log("EventLoop: microtask 2"));
+  setTimeout(() => console.log("EventLoop: macrotask 2"), 0);
+  console.log("EventLoop: sync end");
+
+  const [cancelCase, successCase] = await Promise.all([
+    runAbortDemo(1000),
+    runAbortDemo(4000),
+  ]);
+
+  app.innerHTML = `
+    <h3>Async Patterns Demo</h3>
+    <p><strong>Abort outcomes:</strong> ${cancelCase}, ${successCase}</p>
+    <p>${myName}</p>
+  `;
+})();

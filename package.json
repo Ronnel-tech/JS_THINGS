@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint activity_001",
     "build": "tailwindcss -i ./src/input.css -o ./src/output.css",
     "watch": "tailwindcss -i ./src/input.css -o ./src/output.css --watch"
   },
@@ -22,6 +23,10 @@
   "homepage": "https://github.com/Ronnel-tech/JS_THINGS#readme",
   "dependencies": {
     "@tailwindcss/cli": "^4.3.0",
-    "tailwindcss": "^4.3.0"
+    "tailwindcss": "^4.3.0",
+    "typescript-eslint": "^8.68.0"
+  },
+  "devDependencies": {
+    "eslint": "^10.9.1"
   }
 }

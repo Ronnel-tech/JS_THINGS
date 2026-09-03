@@ -6,40 +6,31 @@
     <title>Document</title>
     <link rel="stylesheet" href="../src/output.css" />
   </head>
-  <body class="p-30 bg-[#030712] flex items-center justify-center h-screen">
-    <section
-      class="w-90 h-64 flex flex-col items-center justify-center gap-10 bg-green-300 border-2 border-green-500 rounded-lg"
-    >
-      <h1 class="text-2xl font-bold text-white">
-        Find your location in one click
-      </h1>
+  <body>
+    <label for="" class="">Button Events</label>
+    <div class="bg-amber-100 p-30 flex gap-2 justify-center rounded-4xl">
+      <button id="myBtn1" class="bg-blue-400 p-5 px-7 rounded-2xl">btn1</button>
+      <button id="myBtn2" class="bg-blue-400 p-5 px-7 rounded-2xl">btn2</button>
+      <button id="myBtn3" class="bg-blue-400 p-5 px-7 rounded-2xl">btn3</button>
+    </div>
 
-      <button
-        id="find-me"
-        class="bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-      >
-        Find Location
+    <label for="" class="">Custom Event</label>
+    <div class="bg-amber-100 p-30 flex gap-2 justify-center rounded-4xl">
+      <button id="helloEvent" class="bg-blue-400 p-5 px-7 rounded-2xl">
+        Custom Button
       </button>
+    </div>
 
-      <div class="">
-        <p id="status" class="text-white">Status</p>
-      </div>
-
-      <p id="map-link" href="" target="_blank">Location Unknown</p>
-    </section>
-
+    <label for="" class="">Event Bubbling and Capturing</label>
+    <div
+      id="parent"
+      class="bg-amber-100 p-30 flex gap-2 justify-center rounded-4xl"
+    >
+      Parent Child:
+      <button id="child" class="bg-blue-400 p-5 px-7 rounded-2xl">
+        Child Buttn
+      </button>
+    </div>
     <script src="app.js"></script>
-
-    <section>
-      <ul>
-        <li>
-          <div class="hello"></div>
-          <div class="hello"></div>
-          <div class="hello"></div>
-          <div class="hello"></div>
-          <div class="hello"></div>
-        </li>
-      </ul>
-    </section>
   </body>
 </html>
