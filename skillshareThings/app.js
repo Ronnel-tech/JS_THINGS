@@ -1,43 +1,45 @@
-'use strict';
+"use strict";
 
+const songs = [];
 
+const song1 = {
+  song: "Shape of you1",
+  timeStreamed: 1.384,
+  wonGrammy: true,
+};
+const song2 = {
+  song: "Shape of you2",
+  timeStreamed: 2.384,
+  wonGrammy: true,
+};
+const song3 = {
+  song: "Shape of you3",
+  timeStreamed: 2.384,
+  wonGrammy: true,
+};
+const song4 = {
+  song: "Shape of you4",
+  timeStreamed: 2.384,
+  wonGrammy: false,
+};
 
-const name = document.getElementById('name');
-const age = document.getElementById('age');
-const gender = document.getElementById('gender');
-const id = document.getElementById('id');
-const form = document.getElementById('myForm');
+songs.push(song1, song2, song3, song4);
 
-form.addEventListener('submit', (event) => {
-    event.preventDefault();
+const hasWonGrammy = songs.some((song) => song.wonGrammy === true);
+const hasTimeStreamed = songs.every((song) => song.timeStreamed > 1.5);
 
-    const studentInfo = {
-        name: name.value,
-        age: age.value,
-        gender: gender.value,
-        id: id.value,
+console.log(hasWonGrammy, hasTimeStreamed);
 
-        getStudentInfo(name, age, gender, id) {
-            console.log(`Your name is ${name}, your age is ${age}, your gender is ${gender}, your id is ${id}`);
-        }
+songs
+  .map((song) =>
+    song.timeStreamed > 2.3
+      ? { ...song, great: true }
+      : { ...song, great: false },
+  )
+  .forEach((song) => {
+    if (song.great) {
+      console.log(`The ${song.song} is great`);
     }
-    studentInfo.getStudentInfo(studentInfo.name, studentInfo.age, studentInfo.gender, studentInfo.id);
+  });
 
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+console.log(songs);
