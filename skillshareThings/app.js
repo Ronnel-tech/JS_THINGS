@@ -89,14 +89,16 @@
 //
 // console.log(totalYear);
 
-const numbers = [];
-numbers.push(1, 2, 3, 4, 5);
+// const numbers = [];
+// numbers.push(1, 2, 3, 4, 5);
+//
+// const multiplyNumber = numbers.reduce((reducer, number) => {
+//   if (number > 3) {
+//     reducer.push(number);
+//   }
+//   return reducer;
+// }, []);
+//
+// console.log(multiplyNumber);
 
-const multiplyNumber = numbers.reduce((reducer, number) => {
-  if (number > 3) {
-    reducer.push(number);
-  }
-  return reducer;
-}, []);
-
-console.log(multiplyNumber);
+console.log("Hello World");
