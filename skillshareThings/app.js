@@ -101,15 +101,10 @@
 //
 // console.log(multiplyNumber);
 
-console.log("Hello World");
-console.log("Hello World");
-console.log("Hello World");
-console.log("Hello World");
-console.log("Hello World");
-console.log("Hello World");
-console.log("Hello World");
-console.log("Hello World");
-console.log("Hello World");
-console.log("Hello World");
-console.log("Hello World");
-console.log("Hello World");
+const launchMenu = ["Lunch", "Dinner", "Breakfast"];
+const newLaunchMenu = [...launchMenu];
+
+newLaunchMenu.push("Snacks");
+
+console.log(launchMenu);
+console.log(newLaunchMenu);
