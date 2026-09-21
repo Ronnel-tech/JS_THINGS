@@ -101,10 +101,30 @@
 //
 // console.log(multiplyNumber);
 
-const launchMenu = ["Lunch", "Dinner", "Breakfast"];
-const newLaunchMenu = [...launchMenu];
+// const launchMenu = ["Lunch", "Dinner", "Breakfast"];
+// const newLaunchMenu = [...launchMenu];
+//
+// newLaunchMenu.push("Snacks");
+//
+// console.log(launchMenu);
+// console.log(newLaunchMenu);
 
-newLaunchMenu.push("Snacks");
+// Update "Harvest Salad to Garden salad"
 
-console.log(launchMenu);
-console.log(newLaunchMenu);
+const breakFast = ["Buckwheat Porridge"];
+const dinner = ["Glazed Salmon"];
+
+const allMeals = [...breakFast, "Harvest Salad", ...dinner];
+
+const findIndex = allMeals.findIndex((meal) => meal === "Harvest Salad");
+
+const finalMeals = [
+  ...allMeals.slice(0, findIndex),
+  "Garden Salad",
+  ...allMeals.slice(findIndex + 1),
+];
+
+console.log(finalMeals);
+
+console.log(allMeals);
+
