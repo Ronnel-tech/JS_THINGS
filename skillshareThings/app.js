@@ -139,23 +139,75 @@
 
 //done: array destructuring activity
 
-const fishDishes = [
-  "Salmon Rillettes",
-  "Grilled Tuna Provencal",
-  "Fish and Chips",
-];
-const meatDishes = ["Lasagna", "Spaghetti", "Satay Chicken Skewers"];
+// const fishDishes = [
+//   "Salmon Rillettes",
+//   "Grilled Tuna Provencal",
+//   "Fish and Chips",
+// ];
+// const meatDishes = ["Lasagna", "Spaghetti", "Satay Chicken Skewers"];
+//
+// // Modify these four variables first
+// const [faveFish] = fishDishes;
+// const [, ...regularFishes] = fishDishes;
+//
+// const [, , faveMeat] = meatDishes;
+// const [regularMeat1, regularMeat2] = meatDishes;
+//
+// // Finally, use the spread operator to create these two arrays as well
+// const chefsFaveDishes = [faveFish, faveMeat];
+// let regularDishes = [...regularFishes, regularMeat1, regularMeat2];
+//
+// console.log(chefsFaveDishes);
+// console.log(regularDishes);
 
-// Modify these four variables first
-const [faveFish] = fishDishes;
-const [, ...regularFishes] = fishDishes;
+// todo: turning objects to Arrays
 
-const [, , faveMeat] = meatDishes;
-const [regularMeat1, regularMeat2] = meatDishes;
+// const person = {
+//   name: "John",
+//   age: 30,
+//   city: "New York",
+// };
+//
+// const getPersonKey = (person) => console.log(Object.keys(person));
+// getPersonKey(person);
 
-// Finally, use the spread operator to create these two arrays as well
-const chefsFaveDishes = [faveFish, faveMeat];
-let regularDishes = [...regularFishes, regularMeat1, regularMeat2];
+// const monthlyExpenses = {
+//   food: 6000,
+//   rent: 1500,
+//   transportation: 500,
+//   insurance: 200,
+//   entertainment: 100,
+// };
+//
+// const getMonthlyExpenses = () =>
+//   Object.values(monthlyExpenses).reduce(
+//     (sum, initialValue) => sum + initialValue,
+//     0,
+//   );
+// console.log(getMonthlyExpenses());
 
-console.log(chefsFaveDishes);
-console.log(regularDishes);
+const users = {};
+
+users["1"] = {
+  name: "Ronnel",
+  age: 22,
+};
+
+users["2"] = {
+  name: "John",
+  age: 30,
+};
+
+users["3"] = {
+  name: "Jane",
+  age: 15,
+};
+
+const getUserAgeOver20 = Object.entries(users).reduce((acc, [id, user]) => {
+  if (user.age > 20) {
+    acc.push({ ...user, id });
+  }
+  return acc;
+}, []);
+
+console.log(getUserAgeOver20);
