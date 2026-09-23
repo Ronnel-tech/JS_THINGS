@@ -111,19 +111,39 @@
 
 // Update "Harvest Salad to Garden salad"
 
-const breakFast = ["Buckwheat Porridge"];
-const dinner = ["Glazed Salmon"];
+// const breakFast = ["Buckwheat Porridge"];
+// const dinner = ["Glazed Salmon"];
+//
+// const allMeals = [...breakFast, "Harvest Salad", ...dinner];
+//
+// const findIndex = allMeals.findIndex((meal) => meal === "Harvest Salad");
+//
+// const finalMeals = [
+//   ...allMeals.slice(0, findIndex),
+//   "Garden Salad",
+//   ...allMeals.slice(findIndex + 1),
+// ];
+//
+// console.log(finalMeals);
+//
+// console.log(allMeals);
 
-const allMeals = [...breakFast, "Harvest Salad", ...dinner];
 
-const findIndex = allMeals.findIndex((meal) => meal === "Harvest Salad");
 
-const finalMeals = [
-  ...allMeals.slice(0, findIndex),
-  "Garden Salad",
-  ...allMeals.slice(findIndex + 1),
-];
 
-console.log(finalMeals);
 
-console.log(allMeals);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
