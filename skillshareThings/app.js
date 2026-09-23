@@ -128,22 +128,34 @@
 //
 // console.log(allMeals);
 
+// done: Array Destructuring
 
+// const menuItems = [];
+// menuItems.push("Meatballs", "Pasta", "Burger", "Fries");
+// const [winner, ...losers] = menuItems;
+//
+// console.log(`the winner is: ${winner}`);
+// console.log(`losers are: ${losers}`);
 
+//done: array destructuring activity
 
+const fishDishes = [
+  "Salmon Rillettes",
+  "Grilled Tuna Provencal",
+  "Fish and Chips",
+];
+const meatDishes = ["Lasagna", "Spaghetti", "Satay Chicken Skewers"];
 
+// Modify these four variables first
+const [faveFish] = fishDishes;
+const [, ...regularFishes] = fishDishes;
 
+const [, , faveMeat] = meatDishes;
+const [regularMeat1, regularMeat2] = meatDishes;
 
+// Finally, use the spread operator to create these two arrays as well
+const chefsFaveDishes = [faveFish, faveMeat];
+let regularDishes = [...regularFishes, regularMeat1, regularMeat2];
 
-
-
-
-
-
-
-
-
-
-
-
-
+console.log(chefsFaveDishes);
+console.log(regularDishes);
