@@ -246,21 +246,35 @@
 // console.log(student2);
 // console.log(student3);
 
-function Books(id, title, author, themes = []) {
-  this.id = id;
-  this.title = title;
-  this.author = author;
-  this.themes = themes;
-}
-Books.prototype.addTheme = function (theme) {
-  this.themes = [...this.themes, theme];
-};
+// function Books(id, title, author, themes = []) {
+//   this.id = id;
+//   this.title = title;
+//   this.author = author;
+//   this.themes = themes;
+// }
+// Books.prototype.addTheme = function (theme) {
+//   this.themes = [...this.themes, theme];
+// };
+//
+// const Book1 = new Books(1, "Ang pagong at Matsing", "Luis Soriano");
+// Book1.addTheme("Sports", "Politics", "History");
+//
+// const Book2 = new Books(1, "Ang pagong at Matsing", "Luis Soriano");
+// Book2.addTheme("1999");
+// Book2.addTheme("fhdhdfhdfh");
+// console.log(Book1);
+// console.log(Book2);
 
-const Book1 = new Books(1, "Ang pagong at Matsing", "Luis Soriano");
-Book1.addTheme("Sports", "Politics", "History");
-
-const Book2 = new Books(1, "Ang pagong at Matsing", "Luis Soriano");
-Book2.addTheme("1999");
-Book2.addTheme("fhdhdfhdfh");
-console.log(Book1);
-console.log(Book2);
+console.log("Hello World");
+console.log("Hello World");
+console.log("Hello World");
+console.log("Hello World");
+console.log("Hello World");
+console.log("Hello World");
+console.log("Hello World");
+console.log("Hello World");
+console.log("Hello World");
+console.log("Hello World");
+console.log("Hello World");
+console.log("Hello World");
+console.log("Hello World");
