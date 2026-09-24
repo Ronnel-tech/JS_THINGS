@@ -212,12 +212,55 @@
 //
 // console.log(getUserAgeOver20);
 
-//todo: Learning about sets
+// //todo: Learning about sets
+//
+// const numbers = [1, 2, 3, 4, 5, 6, 7, 5, 4];
+//
+// const newNum = [...new Set(numbers)];
+//
+// for (const num of newNum) {
+//   console.log(num);
+// }
 
-const numbers = [1, 2, 3, 4, 5, 6, 7, 5, 4];
+//todo: Learning about Constructor Functions
 
-const newNum = [...new Set(numbers)];
+// function StudentInfo(name, id, subjects = []) {
+//   this.name = name;
+//   this.id = id;
+//   this.subjects = subjects;
+// }
+//
+// StudentInfo.prototype.addSubject = function (...subject) {
+//   this.subjects = [...this.subjects, subject];
+// };
+//
+// const student1 = new StudentInfo("Ronnel", 1);
+// const student2 = new StudentInfo("John", 2);
+// const student3 = new StudentInfo("Jane", 3);
+//
+// student1.addSubject("Math", "English");
+// student2.addSubject("Science", "History");
+// student3.addSubject("Art", "Music", "English");
+//
+// console.log(student1);
+// console.log(student2);
+// console.log(student3);
 
-for (const num of newNum) {
-  console.log(num);
+function Books(id, title, author, themes = []) {
+  this.id = id;
+  this.title = title;
+  this.author = author;
+  this.themes = themes;
 }
+Books.prototype.addTheme = function (theme) {
+  this.themes = [...this.themes, theme];
+};
+
+const Book1 = new Books(1, "Ang pagong at Matsing", "Luis Soriano");
+Book1.addTheme("Sports", "Politics", "History");
+
+const Book2 = new Books(1, "Ang pagong at Matsing", "Luis Soriano");
+Book2.addTheme("1999");
+Book2.addTheme("fhdhdfhdfh");
+console.log(Book1);
+console.log(Book2);
