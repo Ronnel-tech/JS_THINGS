@@ -265,16 +265,4 @@
 // console.log(Book1);
 // console.log(Book2);
 
-console.log("Hello World");
-console.log("Hello World");
-console.log("Hello World");
-console.log("Hello World");
-console.log("Hello World");
-console.log("Hello World");
-console.log("Hello World");
-console.log("Hello World");
-console.log("Hello World");
-console.log("Hello World");
-console.log("Hello World");
-console.log("Hello World");
-console.log("Hello World");
+
