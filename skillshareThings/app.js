@@ -186,43 +186,38 @@
 //   );
 // console.log(getMonthlyExpenses());
 
-const users = {};
+// const users = {};
+//
+// users["1"] = {
+//   name: "Ronnel",
+//   age: 22,
+// };
+//
+// users["2"] = {
+//   name: "John",
+//   age: 30,
+// };
+//
+// users["3"] = {
+//   name: "Jane",
+//   age: 15,
+// };
+//
+// const getUserAgeOver20 = Object.entries(users).reduce((acc, [id, user]) => {
+//   if (user.age > 20) {
+//     acc.push({ ...user, id });
+//   }
+//   return acc;
+// }, []);
+//
+// console.log(getUserAgeOver20);
 
-users["1"] = {
-  name: "Ronnel",
-  age: 22,
-};
+//todo: Learning about sets
 
-users["2"] = {
-  name: "John",
-  age: 30,
-};
+const numbers = [1, 2, 3, 4, 5, 6, 7, 5, 4];
 
-users["3"] = {
-  name: "Jane",
-  age: 15,
-};
+const newNum = [...new Set(numbers)];
 
-const getUserAgeOver20 = Object.entries(users).reduce((acc, [id, user]) => {
-  if (user.age > 20) {
-    acc.push({ ...user, id });
-  }
-  return acc;
-}, []);
-
-console.log(getUserAgeOver20);
-
-
-console.log("hello");
-console.log("hello");
-console.log("hello");
-console.log("hello");
-console.log("hello");
-console.log("hello");
-console.log("hello");
-console.log("hello");
-console.log("hello");
-console.log("hello");
-console.log("hello");
-console.log("hello");
-console.log("hello");
+for (const num of newNum) {
+  console.log(num);
+}
