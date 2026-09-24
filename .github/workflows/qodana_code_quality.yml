@@ -26,9 +26,8 @@ jobs:
           fetch-depth: 0
       - name: 'Qodana Scan'
         uses: JetBrains/qodana-action@v2026.2
-        env:
-          QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
         with:
+          args: --image,jetbrains/qodana-js-community
           use-caches: true
           post-pr-comment: true
           use-annotations: true
