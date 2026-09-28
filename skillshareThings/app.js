@@ -307,3 +307,29 @@
 // film1.AddGenre("Sports", "Politics", "History");
 // console.log(film1.getFilmTitle());
 // console.log(film1);
+
+//todo: Inheritance
+
+class Product {
+  constructor(name, discountable) {
+    this.name = name;
+    this.discountable = discountable;
+  }
+  isDiscountable() {
+    return this.discountable;
+  }
+}
+
+class SaleProduct extends Product {
+  constructor(name, discountable, price) {
+    super(name, discountable);
+    this.price = price;
+  }
+  getSalePrice() {
+    if (super.isDiscountable()) {
+      return this.price * 0.9;
+    } else return `Not Discountable`;
+  }
+}
+const saleProduct1 = new SaleProduct("Laptop", false, 1000);
+console.log(saleProduct1.getSalePrice());
