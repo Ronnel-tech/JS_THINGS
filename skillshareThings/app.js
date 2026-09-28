@@ -230,14 +230,17 @@
 //   this.subjects = subjects;
 // }
 //
-// StudentInfo.prototype.addSubject = function (...subject) {
-//   this.subjects = [...this.subjects, subject];
-// };
-//
+// //
+// // StudentInfo.prototype.addSubject = function (...subject) {
+// //   this.subjects = [...this.subjects, subject];
+// // };
+// //
 // const student1 = new StudentInfo("Ronnel", 1);
-// const student2 = new StudentInfo("John", 2);
-// const student3 = new StudentInfo("Jane", 3);
+// // const student2 = new StudentInfo("John", 2);
+// // const student3 = new StudentInfo("Jane", 3);
 //
+// console.log(Object.getPrototypeOf(student1).constructor);
+
 // student1.addSubject("Math", "English");
 // student2.addSubject("Science", "History");
 // student3.addSubject("Art", "Music", "English");
@@ -265,4 +268,42 @@
 // console.log(Book1);
 // console.log(Book2);
 
+// todo: Prototypal Inheritance with Classes
 
+// class Student {
+//   constructor(name, id, subject = []) {
+//     this.name = name;
+//     this.id = id;
+//     this.subject = subject;
+//   }
+//   addSubject(...subject) {
+//     this.subject = [...this.subject, subject];
+//   }
+// }
+//
+// const student2 = new Student("John", 2);
+// student2.addSubject("Math", "English");
+// console.log(student2);
+
+//todo: My First Class
+
+// class Films {
+//   constructor(id, title, director, releaseYear, genre = []) {
+//     this.id = id;
+//     this.title = title;
+//     this.director = director;
+//     this.releaseYear = releaseYear;
+//     this.genre = genre;
+//   }
+//   AddGenre(...genre) {
+//     this.genre = [...this.genre, genre];
+//   }
+//   getFilmTitle() {
+//     return `Title: ${this.title}`;
+//   }
+// }
+//
+// const film1 = new Films(1, "Ang pagong at Matsing", "Luis Soriano", 1999);
+// film1.AddGenre("Sports", "Politics", "History");
+// console.log(film1.getFilmTitle());
+// console.log(film1);
