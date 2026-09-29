@@ -310,26 +310,63 @@
 
 //todo: Inheritance
 
-class Product {
-  constructor(name, discountable) {
-    this.name = name;
-    this.discountable = discountable;
+// class Product {
+//   constructor(name, discountable) {
+//     this.name = name;
+//     this.discountable = discountable;
+//   }
+//   isDiscountable() {
+//     return this.discountable;
+//   }
+// }
+//
+// class SaleProduct extends Product {
+//   constructor(name, discountable, price) {
+//     super(name, discountable);
+//     this.price = price;
+//   }
+//   getSalePrice() {
+//     if (super.isDiscountable()) {
+//       return this.price * 0.9;
+//     } else return `Not Discountable`;
+//   }
+// }
+// const saleProduct1 = new SaleProduct("Laptop", false, 1000);
+// console.log(saleProduct1.getSalePrice());
+
+// todo: Getters and Setters
+
+class Student {
+  constructor(name, id, grade) {
+    this._name = name;
+    this._id = id;
+    this._grade = grade;
   }
-  isDiscountable() {
-    return this.discountable;
+  get name() {
+    return this._name;
+  }
+  set name(name) {
+    this._name = name;
+  }
+  get id() {
+    return this._id;
+  }
+  set id(id) {
+    if (id <= 0) {
+      throw new Error("ID must be greater than 0");
+    } else {
+      this._id = id;
+    }
+  }
+  get grade() {
+    return this._grade;
+  }
+  set grade(grade) {
+    this._grade = grade;
   }
 }
 
-class SaleProduct extends Product {
-  constructor(name, discountable, price) {
-    super(name, discountable);
-    this.price = price;
-  }
-  getSalePrice() {
-    if (super.isDiscountable()) {
-      return this.price * 0.9;
-    } else return `Not Discountable`;
-  }
-}
-const saleProduct1 = new SaleProduct("Laptop", false, 1000);
-console.log(saleProduct1.getSalePrice());
+const student1 = new Student("Ronnel", 1, 100);
+console.log(student1);
+student1.grade = 99;
+console.log(student1.grade);
