@@ -336,11 +336,139 @@
 
 // todo: Getters and Setters
 
-class Student {
-  constructor(name, id, grade) {
+// class Student {
+//   constructor(name, id, grade) {
+//     this._name = name;
+//     this._id = id;
+//     this._grade = grade;
+//   }
+//   get name() {
+//     return this._name;
+//   }
+//   set name(name) {
+//     this._name = name;
+//   }
+//   get id() {
+//     return this._id;
+//   }
+//   set id(id) {
+//     if (id <= 0) {
+//       throw new Error("ID must be greater than 0");
+//     } else {
+//       this._id = id;
+//     }
+//   }
+//   get grade() {
+//     return this._grade;
+//   }
+//   set grade(grade) {
+//     this._grade = grade;
+//   }
+// }
+//
+// const student1 = new Student("Ronnel", 1, 100);
+// console.log(student1);
+// student1.grade = 99;
+// console.log(student1.grade);
+
+//todo: Learning about .bind()
+
+// const isAuth = true;
+//
+// const user = {
+//   favorites: [],
+// };
+//
+// class Product {
+//   constructor(name, price) {
+//     this.name = name;
+//     this.price = price;
+//   }
+//   addFavorite() {
+//     if (isAuth) {
+//       user.favorites.push(this.name);
+//     } else {
+//       throw new Error("You are not authenticated");
+//     }
+//   }
+//   favoriteHandle() {
+//     setTimeout(function() {
+//       this.addFavorite();
+//       console.log(`${user.favorites} is added to favorite`);
+//     }.bind(this), 1000);
+//   }
+// }
+//
+// const Product1 = new Product("Laptop", 1000);
+// Product1.favoriteHandle();
+
+// todo: Problem 1
+
+// const Students = [
+//   { name: "John", age: 20, grade: 85 },
+//   { name: "Mark", age: 22, grade: 92 },
+//   { name: "Jane", age: 19, grade: 76 },
+//   { name: "Anna", age: 21, grade: 95 },
+// ];
+//
+// const honorStudents = Students.filter((student) => student.grade >= 90).map(
+//   (student) => student.name,
+// );
+// console.log(honorStudents);
+
+// todo: Problem 2
+
+// const user = {
+//   101: { name: "John", age: 20 },
+//   102: { name: "Jane", age: 19 },
+//   103: { name: "Mark", age: 22 },
+// };
+//
+// const newUser = Object.entries(user).map(([id, user]) => ({ id, ...user }));
+// console.log(newUser);
+
+// todo: Problem 3
+
+// function createCounter() {
+//   let count = 0;
+//   function increment() {
+//     count++;
+//     return count;
+//   }
+//   return increment;
+// }
+//
+// const counter = createCounter();
+// console.log(counter());
+// console.log(counter());
+// console.log(counter());
+// console.log(counter());
+// console.log(counter());
+// console.log(counter());
+// console.log(counter());
+// console.log(counter());
+
+//todo: Problem 4
+//
+// const person = {
+//   name: "Ronnel",
+//
+//   greet() {
+//     console.log(`Hello, I'm ${this.name}`);
+//   },
+// };
+//
+// const greet = person.greet.bind(person);
+//
+// greet();
+
+// todo: Problem 5
+
+class Product {
+  constructor(name, price, quantity) {
     this._name = name;
-    this._id = id;
-    this._grade = grade;
+    this._price = price;
+    this._quantity = quantity;
   }
   get name() {
     return this._name;
@@ -348,25 +476,25 @@ class Student {
   set name(name) {
     this._name = name;
   }
-  get id() {
-    return this._id;
+  get price() {
+    return this._price;
   }
-  set id(id) {
-    if (id <= 0) {
-      throw new Error("ID must be greater than 0");
-    } else {
-      this._id = id;
-    }
+  set price(price) {
+    this._price = price;
   }
-  get grade() {
-    return this._grade;
+  get quantity() {
+    return this._quantity;
   }
-  set grade(grade) {
-    this._grade = grade;
+  set quantity(quantity) {
+    this._quantity = quantity;
+  }
+  getTotalPrice() {
+    return this.price * this.quantity;
+  }
+  addStock(amount) {
+    return (this.quantity += amount);
   }
 }
-
-const student1 = new Student("Ronnel", 1, 100);
-console.log(student1);
-student1.grade = 99;
-console.log(student1.grade);
+const newProduct = new Product("Laptop", 1000, 10);
+console.log(newProduct.addStock(5));
+console.log(newProduct.getTotalPrice());
