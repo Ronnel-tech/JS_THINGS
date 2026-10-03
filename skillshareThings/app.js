@@ -271,7 +271,7 @@
 // todo: Prototypal Inheritance with Classes
 
 // class Student {
-//   constructor(name, id, subject = []) {
+//     constructor(name, id, subject = []) {
 //     this.name = name;
 //     this.id = id;
 //     this.subject = subject;
@@ -464,37 +464,71 @@
 
 // todo: Problem 5
 
-class Product {
-  constructor(name, price, quantity) {
-    this._name = name;
-    this._price = price;
-    this._quantity = quantity;
-  }
-  get name() {
-    return this._name;
-  }
-  set name(name) {
-    this._name = name;
-  }
-  get price() {
-    return this._price;
-  }
-  set price(price) {
-    this._price = price;
-  }
-  get quantity() {
-    return this._quantity;
-  }
-  set quantity(quantity) {
-    this._quantity = quantity;
-  }
-  getTotalPrice() {
-    return this.price * this.quantity;
-  }
-  addStock(amount) {
-    return (this.quantity += amount);
-  }
-}
-const newProduct = new Product("Laptop", 1000, 10);
-console.log(newProduct.addStock(5));
-console.log(newProduct.getTotalPrice());
+// class Product {
+//   constructor(name, price, quantity) {
+//     this._name = name;
+//     this._price = price;
+//     this._quantity = quantity;
+//   }
+//   get name() {
+//     return this._name;
+//   }
+//   set name(name) {
+//     this._name = name;
+//   }
+//   get price() {
+//     return this._price;
+//   }
+//   set price(price) {
+//     this._price = price;
+//   }
+//   get quantity() {
+//     return this._quantity;
+//   }
+//   set quantity(quantity) {
+//     this._quantity = quantity;
+//   }
+//   getTotalPrice() {
+//     return this.price * this.quantity;
+//   }
+//   addStock(amount) {
+//     return (this.quantity += amount);
+//   }
+// }
+// const newProduct = new Product("Laptop", 1000, 10);
+// console.log(newProduct.addStock(5));
+// console.log(newProduct.getTotalPrice());
+
+//todo: DOM
+
+// const newPost = document.createElement("div");
+// newPost.className = "post";
+// newPost.innerHTML = `
+//     <h2>New Post</h2>
+//     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+//         magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+//         commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+//         nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+//         anim id est laborum.</p>
+// `;
+//
+// const post = document.querySelector(".post");
+// post.prepend(newPost);
+
+// const title = document.getElementById("title");
+// title.innerText = "Creating and Modifying HTML Elements";
+//
+// const subTitle = document.createElement("p");
+// subTitle.innerText = "I can create HTML Elements";
+//
+// title.append(subTitle);
+
+//todo: Events
+
+const title = document.getElementById("title");
+title.addEventListener("click", (event) => console.log(event.target));
+
+const posts = document.querySelectorAll(".post");
+posts.forEach((post) =>
+  post.addEventListener("click", () => console.log("This post is clicked")),
+);
