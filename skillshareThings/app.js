@@ -524,11 +524,18 @@
 // title.append(subTitle);
 
 //todo: Events
+//
+// const title = document.getElementById("title");
+// title.addEventListener("click", (event) => console.log(event.target));
+//
+// const posts = document.querySelectorAll(".post");
+// posts.forEach((post) =>
+//   post.addEventListener("click", () => console.log("This post is clicked")),
+// );
 
-const title = document.getElementById("title");
-title.addEventListener("click", (event) => console.log(event.target));
-
-const posts = document.querySelectorAll(".post");
-posts.forEach((post) =>
-  post.addEventListener("click", () => console.log("This post is clicked")),
+const texts = document.querySelectorAll("h1");
+texts.forEach((text) =>
+  text.addEventListener("click", (event) =>
+    console.log(event.target.textContent),
+  ),
 );
