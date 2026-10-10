@@ -533,9 +533,74 @@
 //   post.addEventListener("click", () => console.log("This post is clicked")),
 // );
 
-const texts = document.querySelectorAll("h1");
-texts.forEach((text) =>
-  text.addEventListener("click", (event) =>
-    console.log(event.target.textContent),
-  ),
-);
+// const texts = document.querySelectorAll("h1");
+// texts.forEach((text) =>
+//   text.addEventListener("click", (event) =>
+//     console.log(event.target.textContent),
+//   ),
+// );
+
+// todo: Async
+// const isAuth = false;
+//
+// const promise = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     if (isAuth) {
+//       resolve("Auth");
+//     } else {
+//       reject("Not Auth");
+//     }
+//   }, 2000);
+// });
+//
+// promise
+//   .then((check) => console.log(check))
+//   .catch((error) => console.error(error))
+//   .finally(() => console.log("Promise is done"));
+
+const users = [
+  {
+    username: "John",
+    password: "123456",
+    id: 1,
+    name: "John Doe",
+    email: "john@example.com",
+    address: "123 Main St",
+    this: this,
+  },
+  {
+    expectedUsername: "John",
+    expectedPassword: "123456",
+  },
+];
+
+const [{ username, password }, { expectedUsername, expectedPassword }] = users;
+
+const getUser = (user) => {
+  console.log(
+    `User ID: ${user.id}, Name: ${user.name}, Email: ${user.email}, Address: ${user.address}`,
+  );
+};
+
+const login = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    const user = users.find(() => {
+      return username === expectedUsername && password === expectedPassword;
+    });
+
+    if (user) {
+      resolve(user);
+    } else {
+      reject("User not found");
+    }
+  }, 2000);
+});
+
+login
+  .then((check) => {
+    console.log("Login Successful");
+    return getUser(check);
+  })
+  .then((profile) => console.log(profile))
+  .catch((error) => console.error(error))
+  .finally(() => console.log("Promise is done"));
