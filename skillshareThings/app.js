@@ -566,25 +566,19 @@ const users = [
     name: "John Doe",
     email: "john@example.com",
     address: "123 Main St",
-    this: this,
-  },
-  {
-    expectedUsername: "John",
-    expectedPassword: "123456",
   },
 ];
 
-const [{ username, password }, { expectedUsername, expectedPassword }] = users;
+const expectedUsername = "John";
+const expectedPassword = "123456";
 
 const getUser = (user) => {
-  console.log(
-    `User ID: ${user.id}, Name: ${user.name}, Email: ${user.email}, Address: ${user.address}`,
-  );
+  return `User ID: ${user.id}, Name: ${user.name}, Email: ${user.email}, Address: ${user.address}`;
 };
 
 const login = new Promise((resolve, reject) => {
   setTimeout(() => {
-    const user = users.find(() => {
+    const user = users.find(({ username, password }) => {
       return username === expectedUsername && password === expectedPassword;
     });
 
@@ -599,6 +593,7 @@ const login = new Promise((resolve, reject) => {
 login
   .then((check) => {
     console.log("Login Successful");
+
     return getUser(check);
   })
   .then((profile) => console.log(profile))
