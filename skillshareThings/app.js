@@ -558,44 +558,117 @@
 //   .catch((error) => console.error(error))
 //   .finally(() => console.log("Promise is done"));
 
-const users = [
-  {
-    username: "John",
-    password: "123456",
-    id: 1,
-    name: "John Doe",
-    email: "john@example.com",
-    address: "123 Main St",
-  },
-];
+// const users = [
+//   {
+//     username: "John",
+//     password: "123456",
+//     id: 1,
+//     name: "John Doe",
+//     email: "john@example.com",
+//     address: "123 Main St",
+//   },
+// ];
+//
+// const expectedUsername = "John";
+// const expectedPassword = "123456";
+//
+// const getUser = (user) => {
+//   return `User ID: ${user.id}, Name: ${user.name}, Email: ${user.email}, Address: ${user.address}`;
+// };
+//
+// const login = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     const user = users.find(({ username, password }) => {
+//       return username === expectedUsername && password === expectedPassword;
+//     });
+//
+//     if (user) {
+//       resolve(user);
+//     } else {
+//       reject("User not found");
+//     }
+//   }, 2000);
+// });
+//
+// login
+//   .then((check) => {
+//     console.log("Login Successful");
+//
+//     return getUser(check);
+//   })
+//   .then((profile) => console.log(profile))
+//   .catch((error) => console.error(error))
+//   .finally(() => console.log("Promise is done"));
 
-const expectedUsername = "John";
-const expectedPassword = "123456";
+//todo: Making network requests with Fetch
 
-const getUser = (user) => {
-  return `User ID: ${user.id}, Name: ${user.name}, Email: ${user.email}, Address: ${user.address}`;
-};
+// Get
 
-const login = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    const user = users.find(({ username, password }) => {
-      return username === expectedUsername && password === expectedPassword;
-    });
+fetch("https://jsonplaceholder.typicode.com/posts/")
+  .then((response) => response.json())
+  .then((post) => console.log(post));
 
-    if (user) {
-      resolve(user);
-    } else {
-      reject("User not found");
-    }
-  }, 2000);
-});
+// Create
 
-login
-  .then((check) => {
-    console.log("Login Successful");
+// const userPost = {
+//   userId: 1001,
+//   title: "My first post",
+//   body: "This is my first post",
+// };
+//
+// fetch("https://jsonplaceholder.typicode.com/pots", {
+//   method: "POST",
+//   body: JSON.stringify(userPost),
+//   headers: { "Content-Type": "application/json" },
+// })
+//   .then((response) => {
+//     if (!response.ok) {
+//       throw new Error(response.statusText);
+//     } else {
+//       return response.json();
+//     }
+//   })
+//   .then((post) => console.log(post))
+//   .catch((error) => console.error(error));
 
-    return getUser(check);
-  })
-  .then((profile) => console.log(profile))
-  .catch((error) => console.error(error))
-  .finally(() => console.log("Promise is done"));
+// const accessKey = "14f6de02656ae29fa72a880e79f99e60";
+// const url = new URL("https://api.weatherstack.com/current");
+//
+// url.searchParams.set("access_key", accessKey);
+// url.searchParams.set("query", "London");
+// url.searchParams.set("units", "m");
+//
+// const weatherLoc = document.getElementById("weather-location");
+// const weatherTemperature = document.getElementById("weather-temperature");
+// const weatherCon = document.getElementById("weather-condition");
+// const weatherWind = document.getElementById("weather-wind");
+// const weatherHumidity = document.getElementById("weather-humidity");
+//
+// const weatherStatus = document.getElementById("weather-status");
+// const weatherData = document.getElementById("weather-data");
+//
+// fetch(url)
+//   .then((response) => {
+//     if (!response.ok) {
+//       throw new Error(`Status code: ${response.status}`);
+//     } else {
+//       return response.json();
+//     }
+//   })
+//   .then((data) => {
+//     if (data.success === false) {
+//       throw new Error(data.error.info);
+//     } else {
+//       weatherLoc.textContent = `${data.location.name}, ${data.location.country}`;
+//       weatherTemperature.textContent = `${data.current.temperature} °C`;
+//       weatherCon.textContent = data.current.weather_descriptions[0];
+//       weatherWind.textContent = `${data.current.wind_speed} km/h`;
+//       weatherHumidity.textContent = `${data.current.humidity}%`;
+//
+//       weatherStatus.hidden = true;
+//       weatherData.hidden = false;
+//     }
+//   })
+//   .catch((error) => {
+//     weatherStatus.textContent = `Unable to load weather: ${error.message}`;
+//   });
