@@ -604,12 +604,12 @@
 
 // Get
 
-fetch("https://jsonplaceholder.typicode.com/posts/")
-  .then((response) => response.json())
-  .then((post) => console.log(post));
-
-// Create
-
+// fetch("https://jsonplaceholder.typicode.com/posts/")
+//   .then((response) => response.json())
+//   .then((post) => console.log(post));
+//
+// Create;
+//
 // const userPost = {
 //   userId: 1001,
 //   title: "My first post",
@@ -630,12 +630,12 @@ fetch("https://jsonplaceholder.typicode.com/posts/")
 //   })
 //   .then((post) => console.log(post))
 //   .catch((error) => console.error(error));
-
+//
 // const accessKey = "14f6de02656ae29fa72a880e79f99e60";
 // const url = new URL("https://api.weatherstack.com/current");
 //
 // url.searchParams.set("access_key", accessKey);
-// url.searchParams.set("query", "London");
+// url.searchParams.set("query", "Manila");
 // url.searchParams.set("units", "m");
 //
 // const weatherLoc = document.getElementById("weather-location");
@@ -672,3 +672,39 @@ fetch("https://jsonplaceholder.typicode.com/posts/")
 //   .catch((error) => {
 //     weatherStatus.textContent = `Unable to load weather: ${error.message}`;
 //   });
+//
+// const duckImage = document.getElementById("image");
+// //
+// const url = new URL("https://random-d.uk/api/random");
+// //
+// fetch(url)
+//   .then((response) => response.json())
+//   .then((data) => (duckImage.src = data.url.replace("https://")));
+
+//todo: Fetch API Challenge
+
+const url = new URL("https://jsonplaceholder.typicode.com/users/3");
+
+fetch(url)
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error(`Status code: ${response.status}`);
+    } else {
+      return response.json();
+    }
+  })
+  .then((data) => {
+    if (data.success === false) {
+      throw new Error(data.error.info);
+    } else {
+      console.log(data.id);
+      console.log(data.name);
+      console.log(data.company.name);
+    }
+  })
+  .catch((error) => {
+    console.error(error);
+  })
+  .finally(() => {
+    console.log("Failed to open the specified link");
+  });
