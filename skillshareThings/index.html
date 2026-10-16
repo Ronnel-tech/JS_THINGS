@@ -28,28 +28,29 @@
         height: 100vh;
     }
 
-    .tagline {
-        color: #00b1d2ff;
-    }
+    /*.tagline {*/
+    /*    color: #00b1d2ff;*/
+    /*}*/
 </style>
 <body class="p-30">
 <!--<h1 id="title">Coding challenge</h1>-->
 <!--<h1>Coding challenge: Events</h1>-->
 <!--<h1>I can create HTML elements!</h1>-->
-<!--<h1>But can I use event listners?</h1>-->
+<!--<h1>But can I use event listeners?</h1>-->
 <section id="weather" aria-live="polite">
-    <h2>Current weather</h2>
-    <p id="weather-status">Loading weather...</p>
     <div id="weather-data" hidden>
+        <h2>Current weather</h2>
+        <p id="weather-status">Loading weather...</p>
         <p>Location: <span id="weather-location"></span></p>
         <p>Temperature: <span id="weather-temperature"></span></p>
         <p>Condition: <span id="weather-condition"></span></p>
         <p>Humidity: <span id="weather-humidity"></span></p>
         <p>Wind speed: <span id="weather-wind"></span></p>
-    </div>
-</section>
 
-<img alt="random duck" id="image">
+
+    </div>
+    <button id="weather-button" class="p-5 bg-amber-600 rounded-4xl">Get Weather</button>
+</section>
 <script src="app.js"></script>
 </body>
 </html>
