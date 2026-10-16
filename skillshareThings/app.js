@@ -33,7 +33,7 @@
 // songs
 //   .map((song) =>
 //     song.timeStreamed > 2.3
-//       ? { ...song, great: true }
+//       ? { ...song, great:true}
 //       : { ...song, great: false },
 //   )
 //   .forEach((song) => {
@@ -683,28 +683,133 @@
 
 //todo: Fetch API Challenge
 
+// const url = new URL("https://jsonplaceholder.typicode.com/users/3");
+//
+// fetch(url)
+//   .then((response) => {
+//     if (!response.ok) {
+//       throw new Error(`Status code: ${response.status}`);
+//     } else {
+//       return response.json();
+//     }
+//   })
+//   .then((data) => {
+//     if (data.success === false) {
+//       throw new Error(data.error.info);
+//     } else {
+//       console.log(data.id);
+//       console.log(data.name);
+//       console.log(data.company.name);
+//     }
+//   })
+//   .catch((error) => {
+//     console.error(error);
+//   })
+//   .finally(() => {
+//     console.log("Failed to open the specified link");
+//   });
+
+// const url = new URL("https://jsonplaceholder.typicode.com/users/3");
+
+// async function getWeatherData() {
+//   try {
+//     const response = await fetch(
+//       "https://jsonplaceholder.typicode.com/users/3",
+//     );
+//
+//     if (!response.ok) {
+//       throw new Error(`Status code: ${response.status}`);
+//     } else {
+//       const data = await response.json();
+//
+//       console.log(data.id);
+//       console.log(data.name);
+//       console.log(data.company.name);
+//     }
+//   } catch (error) {
+//     console.error(error.message);
+//   }
+// }
+//
+// getWeatherData().catch((error) => {
+//   console.error(error.message);
+// });
+
+// const weatherStatus = document.getElementById("weather-status");
+// const weatherData = document.getElementById("weather-data");
+//
+// const weatherLocation = document.getElementById("weather-location");
+// const weatherTemperature = document.getElementById("weather-temperature");
+// const weatherCondition = document.getElementById("weather-condition");
+// const weatherHumidity = document.getElementById("weather-humidity");
+// const weatherWind = document.getElementById("weather-wind");
+//
+// const weatherButton = document.getElementById("weather-button");
+//
+// const accessKey = "14f6de02656ae29fa72a880e79f99e60";
+// const url = new URL("https://api.weatherstack.com/current");
+//
+// url.searchParams.set("access_key", accessKey);
+// url.searchParams.set("query", "Manila");
+// url.searchParams.set("units", "m");
+//
+// async function getWeather() {
+//   try {
+//     const response = await fetch(url);
+//
+//     if (!response.ok) {
+//       throw new Error(`Status code: ${response.status}`);
+//     } else {
+//       const data = await response.json();
+//
+//       weatherLocation.textContent = `${data.location.name}`;
+//       weatherTemperature.textContent = `${data.current.temperature}`;
+//       weatherCondition.textContent = `${data.current.weather_descriptions[0]}`;
+//       weatherHumidity.textContent = `${data.current.humidity}`;
+//       weatherWind.textContent = `${data.current.wind_speed}`;
+//
+//       weatherStatus.hidden = true;
+//       weatherData.hidden = false;
+//       weatherButton.hidden = true;
+//     }
+//   } catch (error) {
+//     console.error(error.message);
+//   }
+// }
+//
+// weatherButton.addEventListener("click", () => {
+//   getWeather().catch((error) => {
+//     console.error(error.message);
+//   });
+// });
+
 const url = new URL("https://jsonplaceholder.typicode.com/users/3");
 
-fetch(url)
-  .then((response) => {
+async function getUser() {
+  try {
+    const response = await fetch(url);
+
     if (!response.ok) {
       throw new Error(`Status code: ${response.status}`);
     } else {
-      return response.json();
+      const data = await response.json();
+      return data;
     }
-  })
-  .then((data) => {
-    if (data.success === false) {
-      throw new Error(data.error.info);
-    } else {
-      console.log(data.id);
-      console.log(data.name);
-      console.log(data.company.name);
-    }
-  })
-  .catch((error) => {
-    console.error(error);
-  })
-  .finally(() => {
-    console.log("Failed to open the specified link");
-  });
+  } catch (error) {
+    console.error(`Could not fetch user from the server: ${error.message}`);
+  }
+}
+
+async function displayUser() {
+  try {
+    const userData = await getUser();
+
+    console.log(userData);
+  } catch (error) {
+    console.error(`Could not display user: ${error.message}`);
+  }
+}
+
+displayUser().catch((error) => {
+  console.error(`Unknown error: ${error.message}`);
+});
