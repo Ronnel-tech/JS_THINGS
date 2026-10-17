@@ -1,5 +1,31 @@
 "use strict";
 
+import { getWeather } from "./utils/Weather_API.js";
+
+const weatherLocation = document.getElementById("weather-location");
+const weatherTemperature = document.getElementById("weather-temperature");
+const weatherCondition = document.getElementById("weather-condition");
+const weatherHumidity = document.getElementById("weather-humidity");
+const weatherWind = document.getElementById("weather-wind");
+const weatherStatus = document.getElementById("weather-status");
+const weatherData = document.getElementById("weather-data");
+const weatherButton = document.getElementById("weather-button");
+
+weatherButton.addEventListener("click", () => {
+  getWeather(
+    weatherLocation,
+    weatherTemperature,
+    weatherCondition,
+    weatherHumidity,
+    weatherWind,
+    weatherStatus,
+    weatherData,
+    weatherButton,
+  ).catch((error) => {
+    console.error(error.message);
+  });
+});
+
 // const songs = [];
 //
 // const song1 = {
@@ -783,33 +809,33 @@
 //   });
 // });
 
-const url = new URL("https://jsonplaceholder.typicode.com/users/3");
-
-async function getUser() {
-  try {
-    const response = await fetch(url);
-
-    if (!response.ok) {
-      throw new Error(`Status code: ${response.status}`);
-    } else {
-      const data = await response.json();
-      return data;
-    }
-  } catch (error) {
-    console.error(`Could not fetch user from the server: ${error.message}`);
-  }
-}
-
-async function displayUser() {
-  try {
-    const userData = await getUser();
-
-    console.log(userData);
-  } catch (error) {
-    console.error(`Could not display user: ${error.message}`);
-  }
-}
-
-displayUser().catch((error) => {
-  console.error(`Unknown error: ${error.message}`);
-});
+// const url = new URL("https://jsonplaceholder.typicode.com/users/3");
+//
+// async function getUser() {
+//   try {
+//     const response = await fetch(url);
+//
+//     if (!response.ok) {
+//       throw new Error(`Status code: ${response.status}`);
+//     } else {
+//       const data = await response.json();
+//       return data;
+//     }
+//   } catch (error) {
+//     console.error(`Could not fetch user from the server: ${error.message}`);
+//   }
+// }
+//
+// async function displayUser() {
+//   try {
+//     const userData = await getUser();
+//
+//     console.log(userData);
+//   } catch (error) {
+//     console.error(`Could not display user: ${error.message}`);
+//   }
+// }
+//
+// displayUser().catch((error) => {
+//   console.error(`Unknown error: ${error.message}`);
+// });
