@@ -1,30 +1,30 @@
 "use strict";
 
-import { getWeather } from "./utils/Weather_API.js";
-
-const weatherLocation = document.getElementById("weather-location");
-const weatherTemperature = document.getElementById("weather-temperature");
-const weatherCondition = document.getElementById("weather-condition");
-const weatherHumidity = document.getElementById("weather-humidity");
-const weatherWind = document.getElementById("weather-wind");
-const weatherStatus = document.getElementById("weather-status");
-const weatherData = document.getElementById("weather-data");
-const weatherButton = document.getElementById("weather-button");
-
-weatherButton.addEventListener("click", () => {
-  getWeather(
-    weatherLocation,
-    weatherTemperature,
-    weatherCondition,
-    weatherHumidity,
-    weatherWind,
-    weatherStatus,
-    weatherData,
-    weatherButton,
-  ).catch((error) => {
-    console.error(error.message);
-  });
-});
+// import { getWeather } from "./utils/Weather_API.js";
+//
+// const weatherLocation = document.getElementById("weather-location");
+// const weatherTemperature = document.getElementById("weather-temperature");
+// const weatherCondition = document.getElementById("weather-condition");
+// const weatherHumidity = document.getElementById("weather-humidity");
+// const weatherWind = document.getElementById("weather-wind");
+// const weatherStatus = document.getElementById("weather-status");
+// const weatherData = document.getElementById("weather-data");
+// const weatherButton = document.getElementById("weather-button");
+//
+// weatherButton.addEventListener("click", () => {
+//   getWeather(
+//     weatherLocation,
+//     weatherTemperature,
+//     weatherCondition,
+//     weatherHumidity,
+//     weatherWind,
+//     weatherStatus,
+//     weatherData,
+//     weatherButton,
+//   ).catch((error) => {
+//     console.error(error.message);
+//   });
+// });
 
 // const songs = [];
 //
@@ -839,3 +839,17 @@ weatherButton.addEventListener("click", () => {
 // displayUser().catch((error) => {
 //   console.error(`Unknown error: ${error.message}`);
 // });
+
+import { getUser } from "./utils/getUser.js";
+
+const id = document.getElementById("user-id-display");
+const title = document.getElementById("user-title");
+const body = document.getElementById("user-body");
+const userInfo = document.getElementById("user-info");
+const userButton = document.getElementById("user-button");
+
+userButton.addEventListener("click", () => {
+  getUser(id, title, body, userInfo).catch((error) => {
+    console.error(error.message);
+  });
+});
