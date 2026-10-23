@@ -840,16 +840,23 @@
 //   console.error(`Unknown error: ${error.message}`);
 // });
 
-import { getUser } from "./utils/getUser.js";
+// import { getUser } from "./utils/getUser.js";
+//
+// const id = document.getElementById("user-id-display");
+// const title = document.getElementById("user-title");
+// const body = document.getElementById("user-body");
+// const userInfo = document.getElementById("user-info");
+// const userButton = document.getElementById("user-button");
+//
+// userButton.addEventListener("click", () => {
+//   getUser(id, title, body, userInfo).catch((error) => {
+//     console.error(error.message);
+//   });
+// });
 
-const id = document.getElementById("user-id-display");
-const title = document.getElementById("user-title");
-const body = document.getElementById("user-body");
-const userInfo = document.getElementById("user-info");
-const userButton = document.getElementById("user-button");
+// import App from "./main.js";
+// new App();
 
-userButton.addEventListener("click", () => {
-  getUser(id, title, body, userInfo).catch((error) => {
-    console.error(error.message);
-  });
-});
+import { main } from "./modules/main.js";
+
+main();

@@ -1,3 +1,5 @@
+"use strict";
+
 export async function getUser(id, title, body, userInfo) {
   try {
     const response = await fetch(
