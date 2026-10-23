@@ -327,13 +327,6 @@
 // student.student_info();
 // student.greet();z
 
-// class bankAccount {
-//   constructor(accountBalance) {
-//     this.accountBalance = accountBalance;
-//   }
-//   showBalance() {
-//     return `Your account balance is: ${this.accountBalance}`;
-//   }
 // }
 
 // const account = new bankAccount(1000);

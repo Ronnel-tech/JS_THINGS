@@ -1,3 +1,5 @@
+"use strict";
+
 export async function getWeather(
   weatherLocation,
   weatherTemperature,
