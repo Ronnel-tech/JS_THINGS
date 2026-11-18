@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Todo State Management Demo</title>
+
+    <style>
+      :root {
+        color-scheme: light;
+        font-family:
+          Inter,
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+        color: #202b3c;
+        background: #f3f6fb;
+        font-synthesis: none;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        min-width: 320px;
+        min-height: 100vh;
+        margin: 0;
+        padding: 48px 20px;
+      }
+      button,
+      input {
+        font: inherit;
+      }
+      button {
+        cursor: pointer;
+      }
+      button:focus-visible,
+      input:focus-visible,
+      summary:focus-visible {
+        outline: 3px solid #8a9ff4;
+        outline-offset: 3px;
+      }
+      #root {
+        width: min(100%, 620px);
+        margin: 0 auto;
+      }
+      .todo-app {
+        padding: clamp(24px, 6vw, 48px);
+        border: 1px solid #e6eaf2;
+        border-radius: 24px;
+        background: #fff;
+        box-shadow: 0 20px 60px #293c6014;
+      }
+      .app-header {
+        margin-bottom: 30px;
+      }
+      .eyebrow {
+        margin: 0 0 10px;
+        color: #6375c7;
+        font-size: 0.75rem;
+        font-weight: 750;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      h1 {
+        margin: 0;
+        font-size: clamp(2.2rem, 8vw, 3rem);
+        letter-spacing: -0.06em;
+        line-height: 1.05;
+      }
+      .intro {
+        margin: 12px 0 0;
+        color: #6d788a;
+        line-height: 1.6;
+      }
+      .todo-form {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 30px;
+      }
+      .todo-form input {
+        width: 100%;
+        min-width: 0;
+        padding: 13px 15px;
+        border: 1px solid #dfe4ee;
+        border-radius: 11px;
+        background: #fbfcfe;
+      }
+      .todo-form input:focus {
+        border-color: #7488e3;
+        outline: 3px solid #7488e326;
+      }
+      .add-button {
+        flex: 0 0 auto;
+        padding: 0 18px;
+        border: 0;
+        border-radius: 11px;
+        background: #5369cb;
+        color: #fff;
+        font-weight: 700;
+      }
+      .add-button:hover {
+        background: #4359b8;
+      }
+      .list-section {
+        border-top: 1px solid #edf0f5;
+      }
+      .list-toolbar,
+      .list-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+      .list-toolbar {
+        padding: 20px 0 13px;
+      }
+      .todo-count,
+      .completed-count {
+        margin: 0;
+        color: #778194;
+        font-size: 0.84rem;
+      }
+      .filters {
+        display: flex;
+        gap: 3px;
+        padding: 3px;
+        border-radius: 9px;
+        background: #f3f5f9;
+      }
+      .filter-button {
+        padding: 7px 10px;
+        border: 0;
+        border-radius: 7px;
+        background: transparent;
+        color: #6e788a;
+        font-size: 0.78rem;
+      }
+      .filter-button[aria-pressed="true"] {
+        background: #fff;
+        color: #4359b8;
+        box-shadow: 0 1px 4px #26365317;
+        font-weight: 700;
+      }
+      .todo-list {
+        display: grid;
+        gap: 8px;
+        margin: 0;
+        padding: 4px 0 16px;
+        list-style: none;
+      }
+      .todo-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        min-height: 52px;
+        padding: 9px 10px 9px 13px;
+        border: 1px solid #edf0f5;
+        border-radius: 11px;
+      }
+      .todo-label {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        min-width: 0;
+        cursor: pointer;
+      }
+      .todo-label input {
+        width: 17px;
+        height: 17px;
+        flex: 0 0 auto;
+        accent-color: #5369cb;
+      }
+      .todo-text {
+        overflow-wrap: anywhere;
+        line-height: 1.4;
+      }
+      .is-completed .todo-text {
+        color: #9aa2b0;
+        text-decoration: line-through;
+      }
+      .remove-button {
+        width: 32px;
+        height: 32px;
+        flex: 0 0 auto;
+        border: 0;
+        border-radius: 8px;
+        background: transparent;
+        color: #919bad;
+        font-size: 1.35rem;
+        line-height: 1;
+      }
+      .remove-button:hover {
+        background: #fff0ef;
+        color: #c45048;
+      }
+      .empty-state {
+        margin: 0;
+        padding: 22px 12px;
+        border: 1px dashed #dfe4ee;
+        border-radius: 11px;
+        color: #8791a2;
+        font-size: 0.9rem;
+        text-align: center;
+      }
+      .empty-state[hidden] {
+        display: none;
+      }
+      .list-footer {
+        padding-top: 14px;
+        border-top: 1px solid #edf0f5;
+      }
+      .text-button {
+        padding: 7px 0 7px 8px;
+        border: 0;
+        background: transparent;
+        color: #6978bb;
+        font-size: 0.82rem;
+      }
+      .text-button:hover:not(:disabled) {
+        color: #344ca7;
+        text-decoration: underline;
+      }
+      .text-button:disabled {
+        cursor: not-allowed;
+        opacity: 0.42;
+      }
+      .learning-note {
+        margin-top: 24px;
+        padding: 16px 18px;
+        border-radius: 12px;
+        background: #f7f8fc;
+        color: #596578;
+        font-size: 0.86rem;
+        line-height: 1.65;
+      }
+      .learning-note summary {
+        color: #4559ad;
+        cursor: pointer;
+        font-weight: 700;
+      }
+      .learning-note ol {
+        padding-left: 20px;
+      }
+      .learning-note li + li {
+        margin-top: 4px;
+      }
+      .learning-note p {
+        margin-bottom: 0;
+      }
+      code {
+        padding: 2px 5px;
+        border-radius: 5px;
+        background: #e9edf8;
+        color: #4053a3;
+        font-size: 0.9em;
+      }
+      .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+      }
+
+      @media (max-width: 480px) {
+        body {
+          padding: 20px 12px;
+        }
+        .todo-form {
+          flex-wrap: wrap;
+        }
+        .todo-form .add-button {
+          width: 100%;
+          min-height: 44px;
+        }
+        .list-toolbar {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
