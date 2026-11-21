@@ -1,118 +1,44 @@
-"use strict";
+import { createStore } from "./createStore.js";
+import { createUserProfileElements } from "./render.js";
+import { changeBoth, userReducer } from "./userProfileState.js";
 
-// todo: INITIAL STATE
-
-const initialUser = {
-  username: "Ronnel",
-  email: "ronnel@gmail.com",
-};
-
-// todo: ACTION
-
-function changeName(username) {
-  return {
-    type: "CHANGE_NAME",
-    payload: {
-      username,
-    },
-  };
-}
-
-function changeEmail(email) {
-  return {
-    type: "CHANGE_EMAIL",
-    payload: {
-      email,
-    },
-  };
-}
-// todo: REDUCER
-
-function userReducer(state = initialUser, action) {
-  switch (action.type) {
-    case "CHANGE_NAME":
-      if (typeof action.payload?.username !== "string") {
-        return state;
-      }
-      return { ...state, username: action.payload.username };
-    case "CHANGE_EMAIL":
-      if (typeof action.payload?.email !== "string") {
-        return state;
-      }
-      return { ...state, email: action.payload.email };
-    default:
-      return state;
-  }
-}
-
-// Todo: Store Creation
-
-function createStore(reducer) {
-  let state = Object.freeze(reducer(undefined, { type: "@@INIT" }));
-  const listener = [];
-
-  function getState() {
-    return Object.freeze(state);
-  }
-
-  // todo: subscribe()
-
-  function subscribe(callback) {
-    listener.push(callback);
-
-    // todo: Unsubscribe()
-
-    return function unsubscribe() {
-      const index = listener.indexOf(callback);
-
-      if (index !== -1) {
-        listener.splice(index, 1);
-      }
-    };
-  }
-
-  // todo: DISPATCH
-
-  function dispatch(action) {
-    const previousState = state;
-
-    state = Object.freeze(reducer(state, action));
-
-    if (previousState !== state) {
-      listener.forEach((callback) => {
-        callback(state);
-      });
-    }
-  }
-
-  return { getState, subscribe, dispatch };
-}
-
-// INITIALIZE STORE
 const store = createStore(userReducer);
 
-// SUBSCRIBE
-
-const unsubscribeUsername = store.subscribe((currentState) => {
-  console.log("Username: ", currentState.username);
+export const unsubscribeUsername = store.subscribe(({ username }) => {
+  console.log("Username: ", username);
 });
 
-const unsubscribeEmail = store.subscribe((currentState) => {
-  console.log("Email: ", currentState.email);
+export const unsubscribeEmail = store.subscribe(({ email }) => {
+  console.log("Email: ", email);
 });
 
-// todo: TEST
+const {
+  fragment,
+  usernameDisplay,
+  emailDisplay,
+  newUsernameInput,
+  newEmailInput,
+  changeNameButton,
+} = createUserProfileElements();
 
-// TEST UNSUBSCRIBE
-unsubscribeUsername();
-unsubscribeEmail();
+document.body.append(fragment);
 
-// TEST DISPATCH
+function render({ username, email }) {
+  usernameDisplay.textContent = username;
+  emailDisplay.textContent = email;
+}
 
-store.dispatch(changeName("Red"));
-store.dispatch(changeEmail("god@gmail.com"));
+render(store.getState());
+store.subscribe(render);
 
-store.dispatch(changeName("John"));
+changeNameButton.addEventListener("click", () => {
+  const username = newUsernameInput.value.trim();
+  const email = newEmailInput.value.trim();
 
-// GET UPDATED STATE
-console.log("Final state:", store.getState());
+  if (!username || !email) {
+    alert("Please fill in both fields.");
+    return;
+  }
+
+  store.dispatch(changeBoth(username, email));
+});
