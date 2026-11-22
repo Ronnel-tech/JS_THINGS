@@ -20,9 +20,7 @@ const {
   newEmailInput,
   changeNameButton,
 } = createUserProfileElements();
-
 document.body.append(fragment);
-
 function render({ username, email }) {
   usernameDisplay.textContent = username;
   emailDisplay.textContent = email;
